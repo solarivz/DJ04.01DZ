@@ -2,9 +2,25 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить фильм</title>
 </head>
 <body>
+    <h1>Добавить фильм</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label for="title">Название фильма:</label>
+        <input type="text" id="title" name="title" required><br><br>
 
+        <label for="description">Описание фильма:</label><br>
+        <textarea id="description" name="description" rows="4" cols="50" required></textarea><br><br>
+
+        <label for="review">Отзыв:</label><br>
+        <textarea id="review" name="review" rows="4" cols="50" required></textarea><br><br>
+
+        <button type="submit">Добавить</button>
+    </form>
+    <br>
+    <a href="{% url 'film_list' %}">Посмотреть список фильмов</a>
 </body>
 </html>
